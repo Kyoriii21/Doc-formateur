@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S.A.B.P. — Direction Générale & Protocoles Opérationnels</title>
+    <title>Direction du SABP — Documents Confidentiels</title>
     <style>
         :root {
-            --bg-color: #070d09;
+            --bg-color: #080f0a;
             --bg-panel: #0d1a12;
-            --bg-card: #122419;
+            --bg-card: #13261a;
             --border-color: #1b3a26;
             --accent-gold: #d4af37;
-            --accent-gold-dim: #997f25;
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
-            --success-green: #22c55e;
         }
 
         * {
@@ -36,306 +34,208 @@
 
         .wrapper {
             width: 100%;
-            max-width: 1000px;
+            max-width: 900px;
             background-color: var(--bg-panel);
-            border: 1px solid var(--accent-gold-dim);
-            border-radius: 6px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
             overflow: hidden;
         }
 
-        /* HEADER INSTITUTIONNEL */
-        .header-top {
+        /* EN-TÊTE */
+        .header {
             background-color: var(--bg-card);
             border-bottom: 1px solid var(--border-color);
-            padding: 25px 35px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 30px;
+            text-align: center;
         }
 
-        .header-title h1 {
+        .header h1 {
             color: var(--accent-gold);
-            font-size: 1.4rem;
-            letter-spacing: 2.5px;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-weight: 700;
+            margin-bottom: 5px;
         }
 
-        .header-title span {
+        .header p {
             color: var(--text-muted);
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .badge-status {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid var(--success-green);
-            color: var(--success-green);
-            padding: 6px 12px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
+            font-size: 0.85rem;
             letter-spacing: 1px;
-            font-weight: bold;
+            text-transform: uppercase;
         }
 
-        /* CONTENU GÉNÉRAL */
+        /* CONTENU */
         .content {
-            padding: 35px;
+            padding: 30px;
         }
 
-        /* SECTION D'AIDE ET FLUIDITÉ */
-        .help-banner {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+        .intro-box {
+            background-color: var(--bg-card);
             border-left: 3px solid var(--accent-gold);
             padding: 15px 20px;
             margin-bottom: 30px;
             font-size: 0.9rem;
             color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .help-banner strong {
+        .intro-box strong {
+            color: var(--text-main);
+        }
+
+        h2 {
             color: var(--accent-gold);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .section-block {
             margin-bottom: 35px;
         }
 
-        h2 {
-            color: var(--accent-gold);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* GRILLE DES MODULES OFFICIELS */
-        .modules-grid {
+        /* GRILLE DES LIENS */
+        .links-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
         @media (max-width: 768px) {
-            .modules-grid {
+            .links-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .module-card {
+        .link-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 4px;
+            border-radius: 6px;
             padding: 20px;
             text-decoration: none;
-            transition: all 0.25s ease;
-            position: relative;
+            transition: all 0.2s ease;
+            display: block;
         }
 
-        .module-card:hover {
+        .link-card:hover {
             border-color: var(--accent-gold);
             transform: translateY(-2px);
-            background-color: #162d1f;
+            background-color: #173020;
         }
 
-        .module-card h3 {
+        .link-card h3 {
             color: var(--accent-gold);
             font-size: 1rem;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
-        .module-card p {
+        .link-card p {
             color: var(--text-muted);
             font-size: 0.85rem;
             line-height: 1.4;
         }
 
-        .module-card .tag {
-            font-size: 0.65rem;
-            background: rgba(212, 175, 55, 0.15);
+        .badge-doc {
+            font-size: 0.7rem;
+            background: rgba(212, 175, 55, 0.1);
             color: var(--accent-gold);
-            padding: 2px 6px;
-            border-radius: 2px;
-            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-        /* TABLEAUX DIRECTION */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        th, td {
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            text-align: left;
-            font-size: 0.85rem;
-        }
-
-        th {
-            background-color: var(--bg-card);
-            color: var(--accent-gold);
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-        }
-
-        tr:nth-child(even) {
-            background-color: rgba(18, 36, 25, 0.4);
-        }
-
-        td a {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        td a:hover {
-            text-decoration: underline;
-        }
-
-        /* DIRECTIVES / LISTES */
-        .directives-list {
+        /* LISTE SIMPLE ET FLUIDE */
+        .info-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-        }
-
-        .directives-list li {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 12px 15px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: flex-start;
             gap: 10px;
         }
 
-        .directives-list li strong {
+        .info-list li {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 18px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-radius: 4px;
+        }
+
+        .info-list li strong {
             color: var(--text-main);
         }
 
-        .directives-list li::before {
-            content: "◆";
-            color: var(--accent-gold);
-            font-size: 0.7rem;
-            margin-top: 2px;
-        }
-
-        /* FOOTER */
+        /* PIED DE PAGE */
         footer {
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-color);
-            padding: 20px 35px;
+            padding: 20px;
             text-align: center;
             font-size: 0.75rem;
             color: var(--text-muted);
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        <header class="header-top">
-            <div class="header-title">
-                <h1>S.A.B.P. — Direction Générale</h1>
-                <span>Portail Opérationnel & Cadre Directeur</span>
-            </div>
-            <div class="badge-status">Système Opérationnel</div>
-        </header>
+        <!-- En-tête -->
+        <div class="header">
+            <h1>Direction du SABP</h1>
+            <p>Documents Confidentiels & Accès Rapide</p>
+        </div>
 
         <div class="content">
-            <!-- Aide / Fluidité -->
-            <div class="help-banner">
-                <strong>Aide à la navigation :</strong> Ce portail centralise l'ensemble des directives de direction. Cliquez sur un module ci-dessous pour accéder directement aux documents officiels de référence en temps réel.
+            <!-- Message d'accueil / aide fluide -->
+            <div class="intro-box">
+                Bienvenue sur l'espace officiel. Retrouvez ci-dessous l'ensemble des documents de référence. Cliquez simplement sur le module souhaité pour l'ouvrir en un clic.
             </div>
 
-            <!-- Modules Principaux (Accès Directs) -->
+            <!-- Accès aux documents -->
             <div class="section-block">
-                <h2>1. Modules Documentaires Officiels</h2>
-                <div class="modules-grid">
-                    <a href="https://docs.google.com/document/d/1dOPwrMLhGuqx70Vmpiz8IsUIIG-0ZYhSuFowJDCwers/edit?usp=sharing" target="_blank" class="module-card">
-                        <h3>Radiophonie <span class="tag">Protocole</span></h3>
-                        <p>Normes d'appel, indicatifs et discipline des ondes sur le terrain.</p>
+                <h2>Modules Documentaires</h2>
+                <div class="links-grid">
+                    <a href="https://docs.google.com/document/d/1dOPwrMLhGuqx70Vmpiz8IsUIIG-0ZYhSuFowJDCwers/edit?usp=sharing" target="_blank" class="link-card">
+                        <h3>Radio <span class="badge-doc">Doc</span></h3>
+                        <p>Consignes pour les communications et règles à respecter sur les ondes.</p>
                     </a>
-                    <a href="https://docs.google.com/document/d/1qBAfeSZrIC6KgnbCCx_dnsQkLxhuiOpYrBzAQT4KBMU/edit?usp=sharing" target="_blank" class="module-card">
-                        <h3>Conduite & Flotte <span class="tag">Logistique</span></h3>
-                        <p>Règles de circulation d'urgence, gestion et entretien du parc automobile.</p>
+                    <a href="https://docs.google.com/document/d/1qBAfeSZrIC6KgnbCCx_dnsQkLxhuiOpYrBzAQT4KBMU/edit?usp=sharing" target="_blank" class="link-card">
+                        <h3>Conduite <span class="badge-doc">Doc</span></h3>
+                        <p>Règles de circulation, gestion des véhicules et consignes de déplacement.</p>
                     </a>
-                    <a href="https://docs.google.com/document/d/1fGbr9SP0itXbiKDKExrBRbIAIiZavLjPxwg-4od_As4/edit?usp=sharing" target="_blank" class="module-card">
-                        <h3>Procédures Opérationnelles <span class="tag">Action</span></h3>
-                        <p>Protocoles d'intervention, contrôles d'identité et gestion des interpellations.</p>
+                    <a href="https://docs.google.com/document/d/1fGbr9SP0itXbiKDKExrBRbIAIiZavLjPxwg-4od_As4/edit?usp=sharing" target="_blank" class="link-card">
+                        <h3>Procédures <span class="badge-doc">Doc</span></h3>
+                        <p>Méthodes de travail sur le terrain, contrôles et interventions.</p>
                     </a>
-                    <a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank" class="module-card">
-                        <h3>Directives FAC <span class="tag">Hiérarchie</span></h3>
-                        <p>Lignes directrices de la direction, déontologie et notes de service.</p>
+                    <a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank" class="link-card">
+                        <h3>FAC <span class="badge-doc">Doc</span></h3>
+                        <p>Directives générales de la direction et règles internes.</p>
                     </a>
                 </div>
             </div>
 
-            <!-- Synthèse Opérationnelle -->
+            <!-- Rappels essentiels -->
             <div class="section-block">
-                <h2>2. Synthèse & Références de Commandement</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Domaine d'Action</th>
-                            <th>Directives Majeures</th>
-                            <th>Accès Direct</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Radiophonie</strong></td>
-                            <td>Application stricte de la règle des 3C et des statuts de service (10-8 / 10-7).</td>
-                            <td><a href="https://docs.google.com/document/d/1dOPwrMLhGuqx70Vmpiz8IsUIIG-0ZYhSuFowJDCwers/edit?usp=sharing" target="_blank">Consulter</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Conduite</strong></td>
-                            <td>Maîtrise absolue des vecteurs, interdiction formelle d'intervention en solitaire pour les cadets.</td>
-                            <td><a href="https://docs.google.com/document/d/1qBAfeSZrIC6KgnbCCx_dnsQkLxhuiOpYrBzAQT4KBMU/edit?usp=sharing" target="_blank">Consulter</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Procédures</strong></td>
-                            <td>Rigueur juridique lors des fouilles, respect des protocoles de contrôle selon le niveau d'alerte.</td>
-                            <td><a href="https://docs.google.com/document/d/1fGbr9SP0itXbiKDKExrBRbIAIiZavLjPxwg-4od_As4/edit?usp=sharing" target="_blank">Consulter</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Directives FAC</strong></td>
-                            <td>Exemplarité, loyauté envers l'institution et stricte observation de la chaîne de commandement.</td>
-                            <td><a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank">Consulter</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Rappels Stratégiques -->
-            <div class="section-block">
-                <h2>3. Notes de Sécurité & Veille Opérationnelle</h2>
-                <ul class="directives-list">
-                    <li><strong>Sécurité Tactique :</strong> Aucun agent ne doit s'engager seul sur une situation critique sans l'aval ou le renfort confirmé d'une unité constituée.</li>
-                    <li><strong>Usage de la Force :</strong> Gradation obligatoire et proportionnalité stricte exigées face à toute menace identifiée sur le théâtre des opérations.</li>
-                    <li><strong>Confidentialité Interne :</strong> L'ensemble des données, rapports d'enquête et notes de direction sont placés sous le sceau de la stricte réserve.</li>
+                <h2>Rappels Importants</h2>
+                <ul class="info-list">
+                    <li><strong>Travail d'équipe :</strong> Ne restez jamais seuls face à une situation délicate.</li>
+                    <li><strong>Discipline :</strong> Le respect des consignes et de la hiérarchie est de rigueur en tout temps.</li>
+                    <li><strong>Discrétion :</strong> Les informations contenues dans ces documents sont strictement confidentielles.</li>
                 </ul>
             </div>
         </div>
 
+        <!-- Pied de page -->
         <footer>
-            S.A.B.P. — DIRECTION // Mr. Blanctitane
+            DIRECTION DU SABP — ACCÈS RÉSERVÉ
         </footer>
     </div>
 
