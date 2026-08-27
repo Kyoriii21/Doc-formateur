@@ -6,17 +6,18 @@
     <title>Direction du SABP — Secrétariat Général & Référentiel Administratif</title>
     <style>
         :root {
-            --bg-color: #060c08;
-            --bg-panel: #0b1710;
-            --bg-card: #102117;
-            --bg-card-hover: #162e20;
-            --border-color: #1f3d2b;
-            --border-gold: #c5a028;
-            --accent-gold: #d4af37;
-            --accent-gold-light: #f3e5ab;
-            --text-main: #e2e8f0;
+            --bg-color: #080b14;
+            --bg-panel: #0e1322;
+            --bg-card: #151d33;
+            --bg-card-hover: #1c2744;
+            --border-color: #233256;
+            --border-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --accent-blue-light: #93c5fd;
+            --accent-purple: #a78bfa;
+            --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --badge-bg: rgba(212, 175, 55, 0.12);
+            --badge-bg: rgba(96, 165, 250, 0.12);
         }
 
         * {
@@ -40,7 +41,7 @@
             width: 100%;
             max-width: 1000px;
             background-color: var(--bg-panel);
-            border: 1px solid var(--border-gold);
+            border: 1px solid var(--border-blue);
             border-radius: 6px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
             overflow: hidden;
@@ -49,7 +50,7 @@
         /* En-tête officiel de Secrétariat */
         .doc-header {
             background-color: var(--bg-card);
-            border-bottom: 2px solid var(--border-gold);
+            border-bottom: 2px solid var(--border-blue);
             padding: 30px 40px;
             display: flex;
             justify-content: space-between;
@@ -57,7 +58,7 @@
         }
 
         .header-left h1 {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
             font-size: 1.4rem;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -82,7 +83,7 @@
 
         .header-right span {
             display: block;
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             font-weight: bold;
         }
 
@@ -94,7 +95,7 @@
         /* Encadré d'information administrative / Secrétariat */
         .admin-meta {
             background-color: var(--bg-card);
-            border-left: 4px solid var(--accent-gold);
+            border-left: 4px solid var(--accent-blue);
             padding: 18px 22px;
             margin-bottom: 35px;
             font-size: 0.85rem;
@@ -118,11 +119,11 @@
 
         .stamp-box {
             background: rgba(0,0,0,0.3);
-            border: 1px dashed var(--border-gold);
+            border: 1px dashed var(--accent-purple);
             padding: 10px;
             text-align: center;
             font-size: 0.75rem;
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -133,7 +134,7 @@
         }
 
         h2 {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
             font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -177,7 +178,7 @@
         }
 
         .module-card:hover {
-            border-color: var(--accent-gold);
+            border-color: var(--accent-blue);
             background-color: var(--bg-card-hover);
             transform: translateY(-2px);
         }
@@ -190,7 +191,7 @@
         }
 
         .module-card h3 {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
             font-size: 0.95rem;
             letter-spacing: 0.5px;
         }
@@ -198,11 +199,17 @@
         .badge-ref {
             font-size: 0.65rem;
             background: var(--badge-bg);
-            color: var(--accent-gold);
+            color: var(--accent-blue);
             padding: 3px 6px;
             border-radius: 2px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(96, 165, 250, 0.3);
             text-transform: uppercase;
+        }
+
+        .badge-purple {
+            background: rgba(167, 139, 250, 0.12);
+            color: var(--accent-purple);
+            border: 1px solid rgba(167, 139, 250, 0.3);
         }
 
         .module-card p {
@@ -227,25 +234,25 @@
 
         .technical-table th {
             background-color: var(--bg-card);
-            color: var(--accent-gold);
+            color: var(--accent-blue);
             text-transform: uppercase;
             font-size: 0.72rem;
             letter-spacing: 1px;
         }
 
         .technical-table tr:nth-child(even) {
-            background-color: rgba(16, 33, 23, 0.4);
+            background-color: rgba(21, 29, 51, 0.4);
         }
 
         .technical-table td a {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
             text-decoration: none;
             font-weight: bold;
         }
 
         .technical-table td a:hover {
             text-decoration: underline;
-            color: var(--accent-gold-light);
+            color: var(--accent-blue-light);
         }
 
         /* Protocoles et notes administratives */
@@ -289,7 +296,7 @@
 
         .signature-block span {
             display: block;
-            color: var(--accent-gold);
+            color: var(--accent-purple);
             font-style: normal;
             font-weight: bold;
             margin-top: 2px;
@@ -366,6 +373,16 @@
                             <p>Cadre déontologique supérieur, respect de la hiérarchie et notes réglementaires émises par la direction.</p>
                         </div>
                     </a>
+
+                    <a href="https://docs.google.com/presentation/d/1daAktdqG8R6GyQtm_c3RkXIf69zhqdDbPIwrK8Rme64/edit?usp=sharing" target="_blank" class="module-card" style="grid-column: span 2;">
+                        <div>
+                            <div class="card-top">
+                                <h3>Guide de bon patrouilleur</h3>
+                                <span class="badge-ref badge-purple">REF-PAT-05</span>
+                            </div>
+                            <p>Support visuel de formation et bonnes pratiques opérationnelles pour l'exécution des patrouilles sur le terrain.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -406,6 +423,12 @@
                             <td>Respect absolu de la chaîne de commandement et de la déontologie interne, validé par l'administration de Mr. Blanctiane.</td>
                             <td><a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank">Consulter</a></td>
                         </tr>
+                        <tr>
+                            <td><strong>Patrouille</strong></td>
+                            <td>REF-PAT-05</td>
+                            <td>Maîtrise des techniques de patrouille formalisées dans le guide officiel de formation, sous le contrôle du secrétariat.</td>
+                            <td><a href="https://docs.google.com/presentation/d/1daAktdqG8R6GyQtm_c3RkXIf69zhqdDbPIwrK8Rme64/edit?usp=sharing" target="_blank">Consulter</a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -427,8 +450,8 @@
                 S.A.B.P. — SECRÉTARIAT GÉNÉRAL // DOCUMENT ADMINISTRATIF OFFICIEL
             </div>
             <div class="signature-block">
-                Visa officiel du Secrétaire :
-                <span>Mr. Blanctitane</span>
+                Document officiel du Secrétariat :
+                <span>Mr. Blanctiane</span>
             </div>
         </footer>
     </div>
