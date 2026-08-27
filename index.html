@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direction du SABP — Documents Confidentiels</title>
+    <title>Direction du SABP — Secrétariat Général & Référentiel Administratif</title>
     <style>
         :root {
-            --bg-color: #080f0a;
-            --bg-panel: #0d1a12;
-            --bg-card: #13261a;
-            --border-color: #1b3a26;
+            --bg-color: #060c08;
+            --bg-panel: #0b1710;
+            --bg-card: #102117;
+            --bg-card-hover: #162e20;
+            --border-color: #1f3d2b;
+            --border-gold: #c5a028;
             --accent-gold: #d4af37;
+            --accent-gold-light: #f3e5ab;
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
+            --badge-bg: rgba(212, 175, 55, 0.12);
         }
 
         * {
@@ -24,218 +28,408 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 40px 15px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
         }
 
-        .wrapper {
+        .document-container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             background-color: var(--bg-panel);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-gold);
+            border-radius: 6px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
             overflow: hidden;
         }
 
-        /* EN-TÊTE */
-        .header {
+        /* En-tête officiel de Secrétariat */
+        .doc-header {
             background-color: var(--bg-card);
-            border-bottom: 1px solid var(--border-color);
-            padding: 30px;
-            text-align: center;
+            border-bottom: 2px solid var(--border-gold);
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .header h1 {
+        .header-left h1 {
             color: var(--accent-gold);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 5px;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
-        .header p {
+        .header-left p {
             color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-left: 1px solid var(--border-color);
+            padding-left: 20px;
+        }
+
+        .header-right span {
+            display: block;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Corps du document */
+        .doc-body {
+            padding: 40px;
+        }
+
+        /* Encadré d'information administrative / Secrétariat */
+        .admin-meta {
+            background-color: var(--bg-card);
+            border-left: 4px solid var(--accent-gold);
+            padding: 18px 22px;
+            margin-bottom: 35px;
             font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .admin-meta {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .admin-meta strong {
+            color: var(--text-main);
+        }
+
+        .stamp-box {
+            background: rgba(0,0,0,0.3);
+            border: 1px dashed var(--border-gold);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--accent-gold);
             letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        /* CONTENU */
-        .content {
-            padding: 30px;
-        }
-
-        .intro-box {
-            background-color: var(--bg-card);
-            border-left: 3px solid var(--accent-gold);
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .intro-box strong {
-            color: var(--text-main);
+        /* Sections */
+        .section-group {
+            margin-bottom: 40px;
         }
 
         h2 {
             color: var(--accent-gold);
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 15px;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .section-block {
-            margin-bottom: 35px;
+        h2 span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: normal;
         }
 
-        /* GRILLE DES LIENS */
-        .links-grid {
+        /* Grille des modules techniques / documents liés */
+        .modules-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
         @media (max-width: 768px) {
-            .links-grid {
+            .modules-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .link-card {
+        .module-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 4px;
             padding: 20px;
             text-decoration: none;
             transition: all 0.2s ease;
-            display: block;
-        }
-
-        .link-card:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-2px);
-            background-color: #173020;
-        }
-
-        .link-card h3 {
-            color: var(--accent-gold);
-            font-size: 1rem;
-            margin-bottom: 8px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: space-between;
         }
 
-        .link-card p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            line-height: 1.4;
+        .module-card:hover {
+            border-color: var(--accent-gold);
+            background-color: var(--bg-card-hover);
+            transform: translateY(-2px);
         }
 
-        .badge-doc {
-            font-size: 0.7rem;
-            background: rgba(212, 175, 55, 0.1);
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .module-card h3 {
             color: var(--accent-gold);
-            padding: 2px 8px;
-            border-radius: 4px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
         }
 
-        /* LISTE SIMPLE ET FLUIDE */
-        .info-list {
+        .badge-ref {
+            font-size: 0.65rem;
+            background: var(--badge-bg);
+            color: var(--accent-gold);
+            padding: 3px 6px;
+            border-radius: 2px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            text-transform: uppercase;
+        }
+
+        .module-card p {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+
+        /* Tableau technique conforme */
+        .technical-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.82rem;
+        }
+
+        .technical-table th, .technical-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        .technical-table th {
+            background-color: var(--bg-card);
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+        }
+
+        .technical-table tr:nth-child(even) {
+            background-color: rgba(16, 33, 23, 0.4);
+        }
+
+        .technical-table td a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .technical-table td a:hover {
+            text-decoration: underline;
+            color: var(--accent-gold-light);
+        }
+
+        /* Protocoles et notes administratives */
+        .protocol-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
 
-        .info-list li {
+        .protocol-list li {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             padding: 12px 18px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--text-muted);
             border-radius: 4px;
+            line-height: 1.5;
         }
 
-        .info-list li strong {
+        .protocol-list li strong {
             color: var(--text-main);
         }
 
-        /* PIED DE PAGE */
-        footer {
+        /* Pied de page officiel / Visa */
+        .doc-footer {
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-color);
-            padding: 20px;
-            text-align: center;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 0.75rem;
             color: var(--text-muted);
-            letter-spacing: 1px;
+        }
+
+        .signature-block {
+            text-align: right;
+            font-style: italic;
+        }
+
+        .signature-block span {
+            display: block;
+            color: var(--accent-gold);
+            font-style: normal;
+            font-weight: bold;
+            margin-top: 2px;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <!-- En-tête -->
-        <div class="header">
-            <h1>Direction du SABP</h1>
-            <p>Documents Confidentiels & Accès Rapide</p>
-        </div>
+    <div class="document-container">
+        <!-- En-tête officiel -->
+        <header class="doc-header">
+            <div class="header-left">
+                <h1>Direction du SABP</h1>
+                <p>Secrétariat Général — Référentiel des Procédures Opérationnelles</p>
+            </div>
+            <div class="header-right">
+                Statut : <span>Conforme & Actif</span>
+                Classification : Confidentiel Interne
+            </div>
+        </header>
 
-        <div class="content">
-            <!-- Message d'accueil / aide fluide -->
-            <div class="intro-box">
-                Bienvenue sur l'espace officiel. Retrouvez ci-dessous l'ensemble des documents de référence. Cliquez simplement sur le module souhaité pour l'ouvrir en un clic.
+        <div class="doc-body">
+            <!-- Bloc administratif & visa de direction -->
+            <div class="admin-meta">
+                <div>
+                    <strong>Note de service administrative :</strong> Le présent registre consigne l’ensemble des protocoles normatifs et directives opérationnelles applicables par les services. Toute dérogation aux dispositions ci-dessous doit faire l'objet d'un rapport motivé transmis au secrétariat.
+                </div>
+                <div class="stamp-box">
+                    Validé par le Secrétariat<br>
+                    <strong>Mr. Blanctiane</strong>
+                </div>
             </div>
 
-            <!-- Accès aux documents -->
-            <div class="section-block">
-                <h2>Modules Documentaires</h2>
-                <div class="links-grid">
-                    <a href="https://docs.google.com/document/d/1dOPwrMLhGuqx70Vmpiz8IsUIIG-0ZYhSuFowJDCwers/edit?usp=sharing" target="_blank" class="link-card">
-                        <h3>Radio <span class="badge-doc">Doc</span></h3>
-                        <p>Consignes pour les communications et règles à respecter sur les ondes.</p>
+            <!-- Section 1 : Modules d'accès direct -->
+            <div class="section-group">
+                <h2>1. Registre des Documents Fondamentaux <span>[Accès direct aux modules]</span></h2>
+                <div class="modules-grid">
+                    <a href="https://docs.google.com/document/d/1dOPwrMLhGuqx70Vmpiz8IsUIIG-0ZYhSuFowJDCwers/edit?usp=sharing" target="_blank" class="module-card">
+                        <div>
+                            <div class="card-top">
+                                <h3>Protocole Radiophonie</h3>
+                                <span class="badge-ref">REF-RAD-01</span>
+                            </div>
+                            <p>Normes d’encadrement des ondes, discipline de communication tactique et grille des statuts de service obligatoires.</p>
+                        </div>
                     </a>
-                    <a href="https://docs.google.com/document/d/1qBAfeSZrIC6KgnbCCx_dnsQkLxhuiOpYrBzAQT4KBMU/edit?usp=sharing" target="_blank" class="link-card">
-                        <h3>Conduite <span class="badge-doc">Doc</span></h3>
-                        <p>Règles de circulation, gestion des véhicules et consignes de déplacement.</p>
+
+                    <a href="https://docs.google.com/document/d/1qBAfeSZrIC6KgnbCCx_dnsQkLxhuiOpYrBzAQT4KBMU/edit?usp=sharing" target="_blank" class="module-card">
+                        <div>
+                            <div class="card-top">
+                                <h3>Gestion de Conduite & Flotte</h3>
+                                <span class="badge-ref">REF-LOG-02</span>
+                            </div>
+                            <p>Directives de circulation d’urgence, traçabilité des vecteurs automobiles et consignes d'entretien du parc.</p>
+                        </div>
                     </a>
-                    <a href="https://docs.google.com/document/d/1fGbr9SP0itXbiKDKExrBRbIAIiZavLjPxwg-4od_As4/edit?usp=sharing" target="_blank" class="link-card">
-                        <h3>Procédures <span class="badge-doc">Doc</span></h3>
-                        <p>Méthodes de travail sur le terrain, contrôles et interventions.</p>
+
+                    <a href="https://docs.google.com/document/d/1fGbr9SP0itXbiKDKExrBRbIAIiZavLjPxwg-4od_As4/edit?usp=sharing" target="_blank" class="module-card">
+                        <div>
+                            <div class="card-top">
+                                <h3>Procédures d’Intervention</h3>
+                                <span class="badge-ref">REF-OPS-03</span>
+                            </div>
+                            <p>Directives réglementaires relatives aux contrôles d’identité, cadres de fouille et gestion des interpellations.</p>
+                        </div>
                     </a>
-                    <a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank" class="link-card">
-                        <h3>FAC <span class="badge-doc">Doc</span></h3>
-                        <p>Directives générales de la direction et règles internes.</p>
+
+                    <a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank" class="module-card">
+                        <div>
+                            <div class="card-top">
+                                <h3>Directives FAC</h3>
+                                <span class="badge-ref">REF-DIR-04</span>
+                            </div>
+                            <p>Cadre déontologique supérieur, respect de la hiérarchie et notes réglementaires émises par la direction.</p>
+                        </div>
                     </a>
                 </div>
             </div>
 
-            <!-- Rappels essentiels -->
-            <div class="section-block">
-                <h2>Rappels Importants</h2>
-                <ul class="info-list">
-                    <li><strong>Travail d'équipe :</strong> Ne restez jamais seuls face à une situation délicate.</li>
-                    <li><strong>Discipline :</strong> Le respect des consignes et de la hiérarchie est de rigueur en tout temps.</li>
-                    <li><strong>Discrétion :</strong> Les informations contenues dans ces documents sont strictement confidentielles.</li>
+            <!-- Section 2 : Tableau synthétique et technique conforme -->
+            <div class="section-group">
+                <h2>2. Matrice de Conformité Opérationnelle <span>[Synthèse administrative]</span></h2>
+                <table class="technical-table">
+                    <thead>
+                        <tr>
+                            <th>Domaine d’Application</th>
+                            <th>Référence Normative</th>
+                            <th>Exigence de Conformité & Sanction</th>
+                            <th>Lien Direct</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Radiophonie</strong></td>
+                            <td>REF-RAD-01</td>
+                            <td>Application stricte de la règle des 3C et des codes statutaires (10-8 / 10-7). Tout manquement répété entraîne une suspension temporaire des ondes.</td>
+                            <td><a href="https://docs.google.com/document/d/1dOPwrMLhGuqx70Vmpiz8IsUIIG-0ZYhSuFowJDCwers/edit?usp=sharing" target="_blank">Consulter</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conduite</strong></td>
+                            <td>REF-LOG-02</td>
+                            <td>Maîtrise absolue des vecteurs de service. Interdiction formelle d'intervention en solitaire pour les agents stagiaires sous peine de sanction disciplinaire.</td>
+                            <td><a href="https://docs.google.com/document/d/1qBAfeSZrIC6KgnbCCx_dnsQkLxhuiOpYrBzAQT4KBMU/edit?usp=sharing" target="_blank">Consulter</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Procédures</strong></td>
+                            <td>REF-OPS-03</td>
+                            <td>Rigueur juridique inébranlable lors des contrôles et fouilles corporelles. Conformité stricte exigée selon le niveau d'alerte en vigueur.</td>
+                            <td><a href="https://docs.google.com/document/d/1fGbr9SP0itXbiKDKExrBRbIAIiZavLjPxwg-4od_As4/edit?usp=sharing" target="_blank">Consulter</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Directives FAC</strong></td>
+                            <td>REF-DIR-04</td>
+                            <td>Respect absolu de la chaîne de commandement et de la déontologie interne, validé par l'administration de Mr. Blanctiane.</td>
+                            <td><a href="https://docs.google.com/document/d/14plDTPS7Urm7UsCuLucMFMlIaqYE125kyLcTZRzPktY/edit?usp=sharing" target="_blank">Consulter</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Section 3 : Consignes permanentes de secrétariat -->
+            <div class="section-group">
+                <h2>3. Directives Permanentes de Sécurité & Veille <span>[Secrétariat Général]</span></h2>
+                <ul class="protocol-list">
+                    <li><strong>Article 1 — Cohésion Tactique :</strong> L'engagement en intervention unilatérale non coordonnée est strictement proscrit. Le soutien mutuel garantit la pérennité des effectifs sur le terrain.</li>
+                    <li><strong>Article 2 — Gradation de l'Usage de la Force :</strong> Toute réplique opérationnelle doit observer une proportionnalité rigoureuse face à la menace constatée, conformément aux directives enregistrées.</li>
+                    <li><strong>Article 3 — Secret Professionnel & Archivage :</strong> Les documents de ce registre et les rapports d'intervention associés relèvent d’une stricte confidentialité administrative placée sous l'autorité du secrétariat.</li>
                 </ul>
             </div>
         </div>
 
-        <!-- Pied de page -->
-        <footer>
-            DIRECTION DU SABP — ACCÈS RÉSERVÉ
+        <!-- Pied de page officiel -->
+        <footer class="doc-footer">
+            <div>
+                S.A.B.P. — SECRÉTARIAT GÉNÉRAL // DOCUMENT ADMINISTRATIF OFFICIEL
+            </div>
+            <div class="signature-block">
+                Visa officiel du Secrétaire :
+                <span>Mr. Blanctitane</span>
+            </div>
         </footer>
     </div>
 
